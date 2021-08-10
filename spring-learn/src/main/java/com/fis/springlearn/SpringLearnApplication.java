@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
@@ -21,13 +22,23 @@ public class SpringLearnApplication {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
 	public static void main(String[] args) {
-		SpringApplication.run(SpringLearnApplication.class, args);
+		//SpringApplication.run(SpringLearnApplication.class, args);
 		
        //  displayDate();
 		//displayCountry();
 		//displayCounties();
 		//displayEmploye();
-		 getEmployeeController();
+		// getEmployeeController();
+		 ApplicationContext appcontext = new AnnotationConfigApplicationContext(EmployeeController.class);
+		getEmployeeControllerUsingAnnot(appcontext);
+	}
+	
+	static void getEmployeeControllerUsingAnnot(ApplicationContext appcontext)
+	{
+		LOGGER.info("Start");
+		EmployeeController eC=appcontext.getBean("employeeController",EmployeeController.class);
+		LOGGER.debug("EmployeeController : {}" , eC);
+		LOGGER.info("End");
 	}
 	
 	static void getEmployeeController()
