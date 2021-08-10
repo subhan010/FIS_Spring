@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.fis.springlearn.bean.Employee;
 import com.sun.tools.javac.parser.ReferenceParser.ParseException;
 
 @SpringBootApplication
@@ -23,8 +24,18 @@ public class SpringLearnApplication {
 		
        //  displayDate();
 		//displayCountry();
-		displayCounties();
+		//displayCounties();
+		displayEmploye();
 		 
+	}
+	static void displayEmploye()
+	{
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		Employee employe = context.getBean("employee",Employee.class );
+		
+		LOGGER.debug("Employee : {}" , employe.toString());
+		
+		
 	}
 	
 	static void displayCounties()
