@@ -20,7 +20,7 @@ public class SpringLearnApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLearnApplication.class, args);
 		
-         displayDate();
+       //  displayDate();
 		displayCountry();
 		 
 	}
@@ -28,7 +28,9 @@ public class SpringLearnApplication {
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
 		Country country = context.getBean("country",Country.class );
+		Country anotherCountry =context.getBean("country",Country.class);
 		LOGGER.debug("Country : {}" , country.toString());
+		LOGGER.debug("Country : {}" ,anotherCountry.toString());
 		
 	}
 	static void displayDate()
