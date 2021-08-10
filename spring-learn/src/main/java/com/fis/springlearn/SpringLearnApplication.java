@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
+import com.fis.springlearn.controller.EmployeeController;
 import com.sun.tools.javac.parser.ReferenceParser.ParseException;
 
 @SpringBootApplication
@@ -25,9 +26,23 @@ public class SpringLearnApplication {
        //  displayDate();
 		//displayCountry();
 		//displayCounties();
-		displayEmploye();
-		 
+		//displayEmploye();
+		 getEmployeeController();
 	}
+	
+	static void getEmployeeController()
+	{
+		LOGGER.info("Start");
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		EmployeeController employeeController=context.getBean("controller",EmployeeController.class);
+		
+		
+		LOGGER.debug("EmployeeController : {}" , employeeController);
+		LOGGER.info("End");
+		
+	}
+	
 	static void displayEmploye()
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");

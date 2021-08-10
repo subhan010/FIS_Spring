@@ -1,5 +1,6 @@
 package com.fis.springlearn.bean;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -14,7 +15,8 @@ public class Employee {
 	private double	salary;
 	private boolean	permanent;
 	private Date	dateOfBirth;
-	
+	Department department;
+	Skills[] skills;
 	public Employee()
 	{
 		
@@ -60,10 +62,27 @@ public class Employee {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+   
+	public Skills[] getSkills() {
+		return skills;
+	}
+
+	public void setSkills(Skills[] skills) {
+		this.skills = skills;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", permanent=" + permanent
-				+ ", dateOfBirth=" + dateOfBirth + "]";
+				+ ", dateOfBirth=" + dateOfBirth + ", department=" + department + ", skills=" + Arrays.toString(skills)
+				+ "]";
 	}
 	
 
