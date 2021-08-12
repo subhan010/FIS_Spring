@@ -14,6 +14,7 @@ public class Employee {
 
 	  private String email;
 	 
+	  private String dep;
 
 	 
 	public Integer getId() {
@@ -39,6 +40,17 @@ public class Employee {
 	  public void setEmail(String email) {
 	    this.email = email;
 	  }
+
+	public String getDep() {
+		return dep;
 	}
+
+	public void setDep(String dep) {
+		this.dep = dep;
+	}
+	  
+	
+
+}
 
 
